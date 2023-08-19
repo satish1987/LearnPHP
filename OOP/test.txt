@@ -1,0 +1,44 @@
+What is class?
+Class is blue print of object.
+
+Car
+
+variable & function
+
+database
+
+connection variables 
+function like insert update delete, view
+
+car -> object ->pysical representation
+
+class -> specification
+
+class object 
+
+user class
+
+varibale  = name , age ;
+
+function =  setName
+setAge
+getName
+getAge
+
+variable = properties
+function = method 
+why?
+
+car 
+
+elements = name, color, tyre, model etc === properties (we can represent as a variable of car class)
+Action = car start, car stop, speed increase, speed decrese  === methods (we can represent as a function of car class)
+
+What is object?
+instance of class.
+
+$car_obj = new Car();
+
+try catch
+
+$this
