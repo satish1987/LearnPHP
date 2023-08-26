@@ -1,1 +1,33 @@
-Hello everyone.
+
+
+university (Main Class)
+
+teachers1
+teachers2
+teachers3
+
+
+final class university{
+
+    protected $name = 'ABC';
+
+    final $taxno = 'tax12345';
+}
+
+class teacher1 extends university{
+
+    function getTeacherUniversityName(){
+       echo $this->name;
+    }
+
+}
+
+interface car{
+    public function applybreak();
+}
+
+class sportscar implements car{
+    function applybreak(){
+        echo 'apply break';
+    }
+}

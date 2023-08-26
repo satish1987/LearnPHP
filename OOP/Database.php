@@ -13,6 +13,13 @@ class Database{
     public $dbconnection;
     public $records;
 
+    function __construct($dbconnection='', $rec='')
+    {
+        $this->dbconnection = $dbconnection;
+        $this->records = $rec;
+
+    }
+
     //methods (function) of class
     function openConnection() : bool{
 
@@ -37,4 +44,12 @@ class Database{
 
     }
 
+    function __destruct()
+    {
+        
+    }
+
 }
+
+$dbObj = new Database($dbconn, $rec);
+
