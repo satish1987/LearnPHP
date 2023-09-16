@@ -1,33 +1,33 @@
 <?php
-//$_GET, $_POST, $_REQUEST
-echo '<pre>';
-$response = $_REQUEST;
-print_r($response);
-//$_FILES
-echo '<br/>';
-echo $target_dir = "uploads/";
-echo '<br/>';
-echo $target_path = $target_dir.basename($_FILES['fileUpload']['name']);
-echo '<br/>';
+//error_reporting(E_ALL);
 
-$uploadOK = 1;
+$servername = 'localhost';
+$username = 'root';
+$password = 'yourpasswd';
+$databasename = 'learnphp';
 
-//$imgaheFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
-$check = getimagesize($_FILES['fileUpload']['tmp_name']);
-if($check !== false){
-    echo 'correct file found';
-    echo '<br/>';
-    $uploadOK = 1;
-    echo $_FILES['fileUpload']['tmp_name'];
-    echo '<br/>';
-    if(move_uploaded_file($_FILES['fileUpload']['tmp_name'], $target_path)){
-        echo 'File uploaded successfully';
-    }else{
-        echo 'There is some error in directory';
-    }
-}else{
-    echo 'wrong file found';
-    $uploadOK = 0;
+//going to create connection
+$conn = new mysqli($servername, $username, $password, $databasename);
+
+//check connection 
+if($conn->connect_error){
+    die("Connection error: " . $conn->connect_error);
 }
+
+//echo "Connected successfully.";
+
+$response = $_REQUEST;
+//print_r($response);
+
+// for insert new row  insert into table_name (column name(comma seperated)) values (column values (comma seperated))
+
+$mysql_query = "insert into users (`firstname`, `lastname`, `email`) values ('".$response['firstname']."','".$response['lastname']."','".$response['email']."')";
+
+if($conn->query($mysql_query) === true){
+    echo "New row inserted";
+}else{
+    echo "error: ". $mysql_query ."<br/>" . $conn->error;
+}
+$conn->close();
 
 ?>

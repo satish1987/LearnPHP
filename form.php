@@ -3,10 +3,10 @@
         <title>This is my first form</title>
     </head>
     <body>
-        <form action="message.php" method="post" enctype="multipart/form-data">
-            Name: <input type="text" name="name"><br/>
+        <form action="message.php" method="post">
+            First Name: <input type="text" name="firstname"><br/>
+            Last Name: <input type="text" name="lastname"><br/>
             Email: <input type="email" name="email"><br/>
-            upload file<input type="file" name="fileUpload" id="fileUpload"><br/>
             <input type="submit">
         </form>
     </body>
