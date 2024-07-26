@@ -1,5 +1,4 @@
 <?php
-//error_reporting(E_ALL);
 
 $servername = 'localhost';
 $username = 'root';
@@ -14,21 +13,19 @@ if($conn->connect_error){
     die("Connection error: " . $conn->connect_error);
 }
 
-//echo "Connected successfully.";
-
 $response = $_REQUEST;
 //print_r($response);
 
-// for insert new row  insert into table_name (column name(comma seperated)) values (column values (comma seperated))
+// update tablename set column_name = new_value where condition logic
 
-$mysql_query = "insert into users (`firstname`, `lastname`, `email`) values ('".$response['firstname']."','".$response['lastname']."','".$response['email']."')";
+$mysql_query = "update users  set firstname='".$response['firstname']."', lastname='".$response['lastname']."', email='".$response['email']."', salary='".$response['salary']."' where id =".$response['id'];
 
 if($conn->query($mysql_query) === true){
-    $last_id = $conn->insert_id;
-    echo "New row inserted. Last inserted id is: ". $last_id;
+    echo "Record updated successfully.";
 }else{
     echo "error: ". $mysql_query ."<br/>" . $conn->error;
 }
 $conn->close();
+
 
 ?>
